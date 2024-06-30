@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎访问我的网站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            background: #0066cc;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .disclaimer {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎来到我的网站</h1>
+    <p>这里是我的个人网站的入口。我的主要内容托管在另一个位置。</p>
+    <p>点击下面的按钮访问我的完整网站：</p>
+    <a href="#" id="mainSiteLink" class="button">访问我的主站点</a>
+    <p class="disclaimer">注意：链接将带您到一个 IP 地址。这是正常的，因为我目前没有使用域名。</p>
+
+    <script>
+        // 设置您的 WordPress 站点的 IP 地址
+        var wpIP = "124.223.111.37";
+
+        // 更新链接
+        document.getElementById('mainSiteLink').href = "http://" + wpIP;
+        
+        // 添加点击事件处理
+        document.getElementById('mainSiteLink').addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止默认行为
+            var confirmation = confirm("您将被重定向到 IP 地址 " + wpIP + "。是否继续？");
+            if (confirmation) {
+                window.location.href = "http://" + wpIP;
+            }
+        });
+    </script>
+</body>
+</html>
